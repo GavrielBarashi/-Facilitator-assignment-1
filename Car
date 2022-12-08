@@ -1,0 +1,68 @@
+
+/**
+ * Write a description of class Car here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class Car
+{
+   private int _id;
+   private char _type;
+   private String _brand = new String();
+   private boolean _isManual;
+   
+   public Car (int id, char type, String brand, boolean isManual){
+       this._id = id;
+       this._type=type;
+       this._brand = brand;
+       this._isManual = isManual;
+   }
+   
+   public int getId(){
+       return this._id;
+   }
+   
+   public char getType(){
+       return this._type;
+   }
+   
+   public String getBrand(){
+       return this._brand;
+   }
+   
+   public boolean isManual(){
+       return this._isManual;
+   }
+   
+   public void setId(int id){
+       this._id = id;
+   }
+   
+   public void setType(char type){
+       this._type = type;
+   }
+   
+   public void setBrand(String brand){
+       this._brand = brand;
+   }
+   
+   public void setIsManual(boolean manual){
+       this._isManual = manual;
+   }
+   
+   public boolean better (Car other){
+       if (this._type > other._type){
+           return true;
+       }
+       else if (this._type == other._type && this._isManual == false && other._isManual == true){
+           return true;
+       }
+       else{
+           return false;
+       }
+     }
+    public String toString(){
+       return (this._id + " " + this._type + " " + this._brand + " " +  this._isManual);
+    }
+}
