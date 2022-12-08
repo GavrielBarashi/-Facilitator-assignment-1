@@ -1,0 +1,88 @@
+
+/**
+ * Write a description of class Date here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class Date
+{
+    //]תכונות פרטיות שמים בpriavte
+    private int _day;
+    private int _month;
+    private int _year;
+    private final int ZERO = 0;
+    private final int TEN = 10;
+    
+    
+    public Date (int d, int m, int y){
+        this._day = d;
+        this._month = m; 
+        this._year = y;
+    }
+    // public מה הפונקציה מחזירה (אם בכלל) name function (פרמטרים שהפונקציה מקבלת מבחוץ){}
+    // מה אפשר להחזיר
+    // int, double, float, String, char, וכל אובייקט באופן כללי, void זה כלום
+    public int getDay(){
+        return this._day;
+    }
+    
+    public int getMonth(){
+        return this._month;
+    }
+    
+    public int getYear(){
+        return this._year;
+    }
+    
+    public void setDay(int dayToSet){
+        this._day = dayToSet;
+    }
+    
+        public void setMonth(int monthToSet){
+        this._month = monthToSet;
+    }
+    
+        public void setYear(int yearToSet){
+        this._year = yearToSet;
+    }
+    
+    public boolean equals (Date other){
+        boolean ans = this.getDay() == other.getDay() && this.getMonth() == other.getMonth() && this.getYear() == other.getYear();
+        return ans;
+    }
+    
+    public boolean before (Date other){
+        if (this.getYear() < other.getYear() ){
+            return true;
+        }
+        else if(this.getYear() == other.getYear() && this.getMonth() < other.getMonth() ){
+            return true;
+        }
+        else if (this.getYear() == other.getYear() && this.getMonth() == other.getMonth() && this.getDay() < other.getDay() ){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public String toString(){
+        if (this.getMonth() < TEN && this. getDay()<TEN){
+            String ans = ZERO + this.getDay() + "/" + ZERO + "" +this.getMonth() + "/" +this.getYear();
+            return ans;
+        }
+        else if (this.getMonth() >= TEN && this.getDay() < TEN){
+             String ans = ZERO + "" + this.getDay() + "/" +this.getMonth() + "/" +this.getYear();
+            return ans;
+        }
+        else if (this.getMonth() < TEN && this.getDay() >= TEN) {
+            String ans = this.getDay() + "/" + ZERO + "" +this.getMonth() + "/" +this.getYear();
+            return ans;
+        }
+        else{
+            String ans = this.getDay() + "/" +this.getMonth() + "/" +this.getYear();
+            return ans;
+        }
+    }
+    }
