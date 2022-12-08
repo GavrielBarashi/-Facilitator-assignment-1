@@ -1,0 +1,110 @@
+import java.util.Scanner;
+
+/**
+ * Write a description of class CarDriver here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class CarDriver
+{
+    public static void main (String [] arg){
+        final int MILION = 1000000;
+        final int MILYARDMINUSONE = 9999999;
+        final char a = 'A';
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.println("Please enter vehicle details C1" + "\n");
+        System.out.println("Please enter a 7-digit vehicle license plate number: ");
+        
+        int tempId = scan.nextInt();
+        
+        System.out.println("Choose a type from the options A/B/C/D ");
+        
+        char tempType = scan.next().charAt(0);
+        
+        System.out.println("The vehicle brand must be entered: ");
+        
+        String brand = scan.next();
+        
+        System.out.println("Is the car manual? true or false ");
+        
+        boolean isManual = scan.nextBoolean();
+        
+        boolean invalidId = (tempId < MILION || tempId > MILYARDMINUSONE);
+        boolean invalidType = (tempType != 'A' || tempType != 'B' || tempType != 'C' || tempType != 'D');
+        Car c1,c2;
+        
+        
+        if (invalidId && !invalidType){
+             c1 = new Car (MILYARDMINUSONE,tempType,brand,isManual);
+        }
+        else if (invalidId && invalidType){
+             c1 = new Car (MILYARDMINUSONE,a,brand,isManual);
+        }
+        else if (!invalidId && invalidType){
+             c1 = new Car(tempId,a,brand,isManual);
+        }
+        else{
+             c1 = new Car(tempId,tempType,brand,isManual);
+        }
+        
+        System.out.println("Please enter vehicle details C2" + "\n");
+        System.out.println("Please enter a 7-digit vehicle license plate number: ");
+        
+        int tempId_car2 = scan.nextInt();
+        
+        System.out.println("Choose a type from the options A/B/C/D ");
+        
+        char tempType_car2 = scan.next().charAt(0);
+        
+        System.out.println("The vehicle brand must be entered: ");
+        
+        String brand_car2 = scan.next();
+        
+        System.out.println("Is the car manual? true or false ");
+        
+        boolean isManual_car2 = scan.nextBoolean();
+        
+        boolean invalidId_car2 = (tempId_car2 < MILION || tempId_car2 > MILYARDMINUSONE);
+        boolean invalidType_car2 = (tempType_car2 != 'A' || tempType_car2!= 'B' || tempType_car2 != 'C' || tempType_car2 != 'D');
+        if (invalidId_car2 && !invalidType_car2){
+             c2 = new Car (MILYARDMINUSONE,tempType_car2,brand_car2,isManual_car2);
+        }
+        else if (invalidId_car2 && invalidType_car2){
+             c2 = new Car (MILYARDMINUSONE,a,brand_car2,isManual_car2);
+        }
+        else if (!invalidId_car2 && invalidType_car2){
+             c2 = new Car(tempId_car2,a,brand_car2,isManual_car2);
+        }
+        else{
+             c2 = new Car(tempId_car2,tempType_car2,brand_car2,isManual_car2);
+        }
+        
+        System.out.println(c1);
+        System.out.println(c2);
+        
+        if (c1.getType() == c2.getType() && c1.getBrand().equals(c2.getBrand()) && c1.isManual() == c2.isManual()){
+            System.out.println("Same car");
+        } 
+        else {
+            System.out.println("Different cars");
+        }
+        
+        if (c1.isManual() == true){
+            c1.setIsManual(false);
+        }
+        else{
+            c1.setIsManual(true);
+        }
+        
+        if (c1.better(c2)){
+            System.out.println(c1);
+        }
+        else if (c2.better(c1)){
+            System.out.println(c2);
+        }
+        
+        
+    }
+ }
