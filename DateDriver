@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+/**
+ * Write a description of class DateDriver here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class DateDriver
+{
+   public static void main (String [] args){
+    Scanner scan = new Scanner(System.in);
+     System.out.println ("This program demonstrates the "
+         + "usage of Date class.");
+     System.out.println ("Please enter the day, month, year"
+         + " of the first date");
+     int day = scan.nextInt();
+     int month = scan.nextInt();
+     int year = scan.nextInt();
+     
+     Date d1 = new Date (day, month, year);
+     Date d2 = new Date (d1.getDay(), d1.getMonth(), d1.getYear() );
+     System.out.println(d1);
+     System.out.println(d2);
+     
+     if(d1.equals(d2) ){
+         System.out.println("Same date");
+     }
+     else{
+         System.out.println("Different dates");
+     }
+     d1.setMonth(12);
+     System.out.println(d1);
+     d2.setYear(d2.getYear()+1);
+     System.out.println(d2);
+     String updatedD2 = "";
+        if (d2.getMonth() < 10 && d2. getDay()<10){
+            updatedD2 ="0" + d2.getDay() + "/" + "0" +d2.getMonth() + "/" +d2.getYear();
+        }
+        else if (d2.getMonth() >= 10 && d2.getDay() < 10){
+             updatedD2 ="0" + d2.getDay() + "/" +d2.getMonth() + "/" +d2.getYear();
+        }
+        else if (d2.getMonth() < 10 && d2.getDay() >= 10) {
+            updatedD2 = d2.getDay() + "/" + "0" +d2.getMonth() + "/" +d2.getYear();
+        }
+        else{
+            updatedD2 = d2.getDay() + "/" +d2.getMonth() + "/" +d2.getYear();
+        }
+    System.out.println(updatedD2);
+    if (d1.equals(d2) ){
+        System.out.println("Same dates");
+    }
+    else if (d1.before(d2) ){
+        System.out.println(d1);
+        System.out.println(d2);
+    }
+    else{
+        System.out.println(d2);
+        System.out.println(d1);
+    }
+   }
+}
