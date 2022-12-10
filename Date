@@ -1,17 +1,20 @@
 
 /**
- * Write a description of class Date here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * This class "Date" answers question number 1 of Facilitator-assignment-12.
+ * Write a description of class Date here.The Date class represents a number
+ * The Date class has the private attributes (day, month, and year)
+ * In this class, we build a "constructor" that accepts three parameters (day, month and year = date)
+ * When in "Constructor" there are several methods/actions
+ * @author Gavriel Barashi , ID- 206096679
+ * @version 05-12-2022
  */
 public class Date
 {
-    //]תכונות פרטיות שמים בpriavte
+  
     private int _day;
     private int _month;
     private int _year;
-    private final int ZERO = 0;
+    private final String ZERO = "0";
     private final int TEN = 10;
     
     
@@ -20,9 +23,7 @@ public class Date
         this._month = m; 
         this._year = y;
     }
-    // public מה הפונקציה מחזירה (אם בכלל) name function (פרמטרים שהפונקציה מקבלת מבחוץ){}
-    // מה אפשר להחזיר
-    // int, double, float, String, char, וכל אובייקט באופן כללי, void זה כלום
+  
     public int getDay(){
         return this._day;
     }
