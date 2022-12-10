@@ -1,12 +1,17 @@
-import java.util.Scanner;
 
 /**
- * Write a description of class DateDriver here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * This class "DateDriver" answers question number 1 of Facilitator-assignment-12.
+ * The DateDriver class is a class whose main method is main.
+ * We will define a new date as the default, in addition we will use the "constructor" we built with the name of the "Date" class in order to change or compare the required attributes.
+ * We will use the methods according to the instructions of the question
+ * @author Gavriel Barashi , ID- 206096679
+ * @version 05-12-2022
  */
+
+import java.util.Scanner;
+
 public class DateDriver
+
 {
    public static void main (String [] args){
     Scanner scan = new Scanner(System.in);
@@ -14,49 +19,80 @@ public class DateDriver
          + "usage of Date class.");
      System.out.println ("Please enter the day, month, year"
          + " of the first date");
+     System.out.println ("Please enter the day");
      int day = scan.nextInt();
+     System.out.println ("Please enter the month");
      int month = scan.nextInt();
+     System.out.println ("Please enter the year");
      int year = scan.nextInt();
+     
+     System.out.println (" ");
      
      Date d1 = new Date (day, month, year);
      Date d2 = new Date (d1.getDay(), d1.getMonth(), d1.getYear() );
+     System.out.println("The date d1 is:");
      System.out.println(d1);
+     System.out.println("The date d2 is:");
      System.out.println(d2);
      
+     System.out.println (" ");
+     
      if(d1.equals(d2) ){
+         System.out.println("The date d1 and the date d2 is:");
          System.out.println("Same date");
+         System.out.println (" ");
      }
      else{
+         System.out.println("The date d1 and the date d2 is:");
          System.out.println("Different dates");
+         System.out.println (" ");
      }
+     
      d1.setMonth(12);
+     System.out.println ("The date d1 after changing the month to month 12, is:");
      System.out.println(d1);
+     System.out.println (" ");
+     
      d2.setYear(d2.getYear()+1);
+     System.out.println ("The date d2 after changing the year to the following year, is:");
      System.out.println(d2);
+     System.out.println (" ");
+     
      String updatedD2 = "";
-        if (d2.getMonth() < 10 && d2. getDay()<10){
-            updatedD2 ="0" + d2.getDay() + "/" + "0" +d2.getMonth() + "/" +d2.getYear();
+     final String ZERO = "0";
+     final int TEN = 10;
+     
+     if (d2.getMonth() < TEN && d2. getDay()<TEN){
+            updatedD2 = ZERO + d2.getDay() + "/" + ZERO +d2.getMonth() + "/" +d2.getYear();
         }
-        else if (d2.getMonth() >= 10 && d2.getDay() < 10){
-             updatedD2 ="0" + d2.getDay() + "/" +d2.getMonth() + "/" +d2.getYear();
+     else if (d2.getMonth() >= TEN && d2.getDay() < TEN){
+             updatedD2 = ZERO + d2.getDay() + "/" +d2.getMonth() + "/" +d2.getYear();
         }
-        else if (d2.getMonth() < 10 && d2.getDay() >= 10) {
-            updatedD2 = d2.getDay() + "/" + "0" +d2.getMonth() + "/" +d2.getYear();
+     else if (d2.getMonth() < TEN && d2.getDay() >= TEN) {
+            updatedD2 = d2.getDay() + "/" + ZERO +d2.getMonth() + "/" +d2.getYear();
         }
-        else{
+     else{
             updatedD2 = d2.getDay() + "/" +d2.getMonth() + "/" +d2.getYear();
         }
-    System.out.println(updatedD2);
-    if (d1.equals(d2) ){
+     
+     System.out.println("Display of the date d2 (updated):");
+     System.out.println(updatedD2);
+     System.out.println (" ");
+     
+     if (d1.equals(d2) ){
+        System.out.println("The date d1 and the date d2 is:");
         System.out.println("Same dates");
-    }
-    else if (d1.before(d2) ){
+        System.out.println (" ");
+     }
+     else if (d1.before(d2) ){
+        System.out.println("Display the dates in order, the earliest followed by the later date:");
         System.out.println(d1);
         System.out.println(d2);
-    }
-    else{
+     }
+     else{
+        System.out.println("Display the dates in order, the earliest followed by the later date:");
         System.out.println(d2);
         System.out.println(d1);
-    }
+     }
    }
 }
