@@ -1,11 +1,13 @@
-import java.util.Scanner;
-
 /**
- * Write a description of class CarDriver here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * This class "CarDriver" answers question number 2 of Facilitator-assignment-12.
+ * The CarDriver class is a class whose main method is main.
+ * We will define a new car as the default, in addition we will use the "constructor" we built with the name of the "Car" class in order to change or compare the required attributes.
+ * We will use the methods according to the instructions of the question
+ * @author Gavriel Barashi , ID- 206096679
+ * @version 04-12-2022
  */
+
+import java.util.Scanner;
 public class CarDriver
 {
     public static void main (String [] arg){
@@ -81,14 +83,24 @@ public class CarDriver
              c2 = new Car(tempId_car2,tempType_car2,brand_car2,isManual_car2);
         }
         
+        System.out.println(" ");
+        
+        System.out.println("Car details c1 (including: ID, type, brand and isManual):");
         System.out.println(c1);
+        System.out.println(" ");
+        System.out.println("Car details c2 (including: ID, type, brand and isManual):");
         System.out.println(c2);
+        System.out.println(" ");
         
         if (c1.getType() == c2.getType() && c1.getBrand().equals(c2.getBrand()) && c1.isManual() == c2.isManual()){
+            System.out.println("Car c1 and car c2 are:");
             System.out.println("Same car");
+            System.out.println(" ");
         } 
         else {
+            System.out.println("Car c1 and car c2 are:");
             System.out.println("Different cars");
+            System.out.println(" ");
         }
         
         if (c1.isManual() == true){
@@ -99,10 +111,14 @@ public class CarDriver
         }
         
         if (c1.better(c2)){
+            System.out.println("Car c1 is better than car c2:");
             System.out.println(c1);
+            System.out.println(" ");
         }
         else if (c2.better(c1)){
+            System.out.println("Car c2 is better than car c1:");
             System.out.println(c2);
+            System.out.println(" ");
         }
         
         
